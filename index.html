@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С 8 марта, любимая!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(145deg, #fdf8f0 0%, #f8efe3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* Декоративные элементы */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #e8d9c5, #dcc8b0, #e8d9c5);
+        }
+        
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background-color: rgba(255, 250, 240, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 48px 48px 40px 40px;
+            padding: 50px 45px;
+            box-shadow: 
+                0 20px 40px rgba(181, 148, 116, 0.15),
+                0 4px 12px rgba(128, 99, 73, 0.1),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(230, 210, 190, 0.5);
+            position: relative;
+        }
+        
+        /* Декоративный элемент сверху */
+        .container::before {
+            content: "✧";
+            font-size: 24px;
+            color: #d4b28c;
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f8efe3;
+            padding: 0 20px;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(181, 148, 116, 0.1);
+        }
+        
+        /* Основной текст по центру */
+        .main-message {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .main-message p {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #5e4b3a;
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+        
+        .main-message .heart-beige {
+            display: inline-block;
+            font-size: 48px;
+            filter: drop-shadow(0 4px 6px rgba(200, 170, 140, 0.3));
+            animation: softPulse 2s infinite ease-in-out;
+            color: #d4a373;
+            margin-top: 5px;
+        }
+        
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+        
+        /* Стили для деталей встречи */
+        .details {
+            background: rgba(250, 240, 230, 0.7);
+            border-radius: 36px;
+            padding: 30px 35px;
+            margin-bottom: 40px;
+            border: 1px solid #e9dacb;
+            box-shadow: inset 0 1px 4px #fff9f0, 0 12px 24px -12px rgba(150, 120, 90, 0.25);
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #4f3f31;
+            border-bottom: 1px dashed #e0cdbb;
+            padding-bottom: 15px;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #b28b65;
+            min-width: 130px;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+            opacity: 0.8;
+        }
+        
+        .detail-value {
+            font-weight: 400;
+            font-size: 24px;
+            color: #6b4f38;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .detail-value.place::before {
+            content: "📍";
+            margin-right: 6px;
+            opacity: 0.8;
+            font-style: normal;
+        }
+        
+        .detail-value.time::before {
+            content: "⏰";
+            margin-right: 6px;
+            opacity: 0.8;
+            font-style: normal;
+        }
+        
+        /* Список того, что нужно взять */
+        .what-to-bring {
+            background: rgba(245, 235, 220, 0.6);
+            border-radius: 40px;
+            padding: 35px 35px 30px;
+            margin-top: 10px;
+            border: 1px solid #eddac8;
+            box-shadow: 0 8px 20px rgba(170, 140, 110, 0.1);
+        }
+        
+        .section-title {
+            font-size: 22px;
+            color: #7a5f48;
+            margin-bottom: 25px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            background: rgba(224, 204, 182, 0.3);
+            padding: 8px 18px;
+            display: inline-block;
+            border-radius: 60px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(4px);
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+        }
+        
+        .bring-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px 25px;
+        }
+        
+        .bring-list li {
+            font-size: 21px;
+            color: #5f4d3c;
+            padding: 8px 0 8px 40px;
+            position: relative;
+            border-bottom: 1px dotted #dccbb8;
+            font-style: italic;
+            font-weight: 300;
+        }
+        
+        .bring-list li::before {
+            content: "✧";
+            color: #d4a373;
+            font-size: 28px;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            opacity: 0.7;
+        }
+        
+        /* Сердечко после списка */
+        .final-heart {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 48px;
+            color: #e2b48c;
+            filter: drop-shadow(0 4px 8px #e9cfb5);
+            animation: gentleFloat 3s infinite ease-in-out;
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(2deg); }
+        }
+        
+        /* Декоративные элементы вокруг */
+        .decoration {
+            position: absolute;
+            font-size: 24px;
+            color: #ecd6bf;
+            opacity: 0.4;
+            user-select: none;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .dec-1 { top: 30px; left: 30px; transform: rotate(-15deg); }
+        .dec-2 { bottom: 30px; right: 30px; transform: rotate(25deg); }
+        .dec-3 { top: 50%; left: 10px; transform: translateY(-50%) rotate(10deg); }
+        .dec-4 { bottom: 50px; left: 50px; }
+        
+        /* Адаптивность */
+        @media (max-width: 550px) {
+            .container {
+                padding: 35px 20px;
+            }
+            
+            .main-message p {
+                font-size: 20px;
+            }
+            
+            .detail-item {
+                flex-direction: column;
+                gap: 5px;
+                font-size: 20px;
+            }
+            
+            .detail-label {
+                min-width: auto;
+            }
+            
+            .bring-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .bring-list li {
+                font-size: 19px;
+            }
+            
+            .detail-value {
+                font-size: 21px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .main-message p {
+                font-size: 18px;
+            }
+            
+            .heart-beige {
+                font-size: 40px;
+            }
+        }
+        
+        /* Дополнительные штрихи */
+        .flower-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 30%, #f3e1d1 1px, transparent 1px),
+                              radial-gradient(circle at 80% 70%, #ecd3bc 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Фоновый декор -->
+    <div class="flower-bg"></div>
+    <div class="decoration dec-1">🌸</div>
+    <div class="decoration dec-2">🌼</div>
+    <div class="decoration dec-3">✨</div>
+    <div class="decoration dec-4">🌷</div>
+    
+    <div class="container">
+        <!-- Основное сообщение (по центру) -->
+        <div class="main-message">
+            <p>
+                Валюнь, с наступающим праздником.<br>
+                Сияй, как солнце, оставайся такой же открытой красоткой<br>
+                и всегда улыбайся. Ты — моё вдохновение,<br>
+                я тебя сильно люблю и приглашаю тебя на кофе
+            </p>
+            <!-- Бежевое сердце (в конце) -->
+            <span class="heart-beige">❤️</span>
+        </div>
+        
+        <!-- Блок с деталями встречи -->
+        <div class="details">
+            <div class="detail-item">
+                <span class="detail-label">Куда:</span>
+                <span class="detail-value place">"Больше чем"</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Когда:</span>
+                <span class="detail-value time">8 марта, 12:00</span>
+            </div>
+        </div>
+        
+        <!-- Что обязательно взять с собой -->
+        <div class="what-to-bring">
+            <div class="section-title">✨ обязательно возьми с собой ✨</div>
+            <ul class="bring-list">
+                <li>невероятную красоту</li>
+                <li>обворожительную улыбку</li>
+                <li>сверкающие глаза</li>
+                <li>хорошее настроение</li>
+            </ul>
+            <!-- Сердечко после списка -->
+            <div class="final-heart">❤️</div>
+        </div>
+    </div>
+</body>
+</html>
